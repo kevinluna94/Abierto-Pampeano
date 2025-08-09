@@ -1,0 +1,101 @@
+:root {
+    --color-principal: #f9b455;
+    --color-secundario: #c18f54;
+    --color-negro: #000000;
+}
+
+/* Hero */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+.bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(249, 180, 85, 0.6);
+    z-index: -1;
+}
+.hero-content {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-cta {
+    background-color: var(--color-principal);
+    border: none;
+    color: var(--color-negro);
+}
+.btn-cta:hover {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+/* Parallax */
+.parallax {
+    background-image: url('Public/fondo_apbd_web[1].jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 400px;
+}
+
+/* Botón flotante WhatsApp con ícono */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+.whatsapp-float:hover {
+    background-color: #1ebe57;
+    color: white;
+}
+
+
+.social-icons a {
+    transition: color 0.3s ease;
+}
+
+/* Colores oficiales */
+.instagram-icon {
+    color: #E4405F; /* Instagram */
+}
+.instagram-icon:hover {
+    color: #b42c49;
+}
+
+.email-icon {
+    color: #D44638; /* Gmail */
+}
+.email-icon:hover {
+    color: #a3362c;
+}
+
+
+.navbar {
+    background-color: #000000 !important;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+}

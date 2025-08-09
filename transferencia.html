@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datos de Transferencia y Precios - Abierto Pampeano</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="transf.css" />
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="Public/logo_apbd_web.jpg" alt="Logo" height="60" class="me-2" />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html#hero">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#evento">Evento</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#entradas">Entradas</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#galeria">Galería</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#inscripciones">Inscripciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#ubicacion">Ubicación</a></li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido -->
+    <div class="container py-5" style="margin-top: 80px;">
+        <!-- Datos Bancarios -->
+        <div class="card shadow-lg p-4 mb-5">
+            <h2 class="text-center text-success mb-4">
+                <i class="bi bi-bank2"></i> Datos para Transferencia Bancaria
+            </h2>
+            <ul class="list-group list-group-flush fs-5">
+                <li class="list-group-item">
+                    <i class="bi bi-building me-2"></i> <strong>Banco:</strong> Banco de La Pampa
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-person me-2"></i> <strong>Titular:</strong> Juan Pérez
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-upc-scan me-2"></i> <strong>CBU:</strong> 2850590940090412345678
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-at me-2"></i> <strong>Alias:</strong> juan.perez.bdlp
+                </li>
+                <li class="list-group-item">
+                    <i class="bi bi-credit-card-2-front me-2"></i> <strong>CUIT:</strong> 20-12345678-9
+                </li>
+            </ul>
+            <p class="mt-4 text-center text-muted">
+                Por favor, envíanos el comprobante una vez realizada la transferencia.
+            </p>
+        </div>
+
+        <!-- Sección Precios Entradas -->
+        <section aria-label="Precios de Entradas">
+            <h2 class="text-center price-header mb-4">🎟️ Precios de Entradas</h2>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="card price-card shadow-sm h-100 border-3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Entrada General</h5>
+                            <p class="display-5 fw-bold text-dark">$1500</p>
+                            <p class="card-text">Acceso a todos los eventos del día.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card price-card shadow-sm h-100 border-3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Entrada VIP</h5>
+                            <p class="display-5 fw-bold text-dark">$3000</p>
+                            <p class="card-text">Acceso con beneficios exclusivos y zona preferencial.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card price-card shadow-sm h-100 border-3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Entrada Niños</h5>
+                            <p class="display-5 fw-bold text-dark">$800</p>
+                            <p class="card-text">Para niños menores de 12 años.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <!-- Botón WhatsApp flotante -->
+    <a
+      href="https://wa.me/549000000000?text=¡Hola!%20Quisiera%20consultar%20sobre%20los%20precios%20y%20datos%20de%20transferencia%20del%20Abierto%20Pampeano"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

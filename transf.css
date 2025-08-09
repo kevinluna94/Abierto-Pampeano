@@ -1,0 +1,66 @@
+:root {
+    --color-principal: #f9b455; /* naranja */
+    --color-secundario: #c18f54; /* marrón */
+    --color-terciario: #000000; /* negro */
+    --color-whatsapp: #25D366;
+    --color-whatsapp-hover: #1ebe57;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--color-terciario) !important; /* Negro sólido */
+}
+
+/* Botón flotante WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    font-size: 3rem;
+    z-index: 1050;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: var(--color-whatsapp-hover);
+    transform: scale(1.1);
+}
+
+/* Botón flotante WhatsApp con ícono */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 2rem;
+    padding: 10px 14px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+.whatsapp-float:hover {
+    background-color: #1ebe57;
+    color: white;
+
+/* Colores marca */
+.price-header {
+    color: var(--color-principal);
+}
+
+.price-card {
+    border-color: var(--color-secundario);
+}
+}

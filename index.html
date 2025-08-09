@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abierto Pampeano</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #000000;">
+
+  <div class="container">
+    <a class="navbar-brand" href="#hero">
+      <img src="Public/logo_apbd_web.jpg" alt="Logo" height="60"> 
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#evento">Evento</a></li>
+        <li class="nav-item"><a class="nav-link" href="#entradas">Entradas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="#inscripciones">Inscripciones</a></li>
+        <li class="nav-item"><a class="nav-link" href="#descargas">Descargas</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero con video -->
+<header id="hero" class="hero-section">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="Public/Video de WhatsApp 2025-08-09 a las 09.52.11_8fec638f.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content text-center text-white">
+        <h1 class="display-4 fw-bold">Abierto Pampeano</h1>
+        <p class="lead">Vive la experiencia única de nuestro evento</p>
+        <a href="#evento" class="btn btn-lg btn-cta">Conoce Más</a>
+    </div>
+</header>
+
+<!-- Sección Evento -->
+<section id="evento" class="py-5 bg-light text-center">
+    <div class="container">
+        <h2>Evento - 11 de Octubre</h2>
+        <p>4ta edición - Santa Rosa, La Pampa</p>
+        <p>Te esperamos en la edición más esperada del Abierto Pampeano.</p>
+        <a href="#inscripciones" class="btn btn-secondary m-2">Inscribirme</a>
+         <a href="#entradas" class="btn btn-cta m-2">Comprar Entradas</a>
+    </div>
+</section>
+
+
+<!-- Imagen Parallax -->
+<section class="parallax"></section>
+
+<!-- Entradas -->
+<section id="entradas" class="py-5 text-center">
+    <div class="container">
+        <h2>Venta de Entradas</h2>
+        <p>Compra tus entradas y asegura tu lugar en el evento.</p>
+        <a href="transferencia.html" class="btn btn-cta">Pagar por Transferencia Bancaria</a>
+    </div>
+</section>
+
+<!-- Galería -->
+<section id="galeria" class="py-5 bg-light text-center">
+    <div class="container">
+        <h2>Galería de Eventos Anteriores</h2>
+        <div class="row g-3 mt-3">
+            <div class="col-md-4"><img src="https://i.pinimg.com/1200x/ba/5f/d7/ba5fd79b21ac1f3a479eafc046225126.jpg" class="img-fluid rounded" alt=""></div>
+            <div class="col-md-4"><img src="https://i.pinimg.com/1200x/1f/dd/f2/1fddf213f549490b4de6120d5311d663.jpg" class="img-fluid rounded" alt=""></div>
+            <div class="col-md-4"><img src="https://i.pinimg.com/1200x/1f/dd/f2/1fddf213f549490b4de6120d5311d663.jpg" class="img-fluid rounded" alt=""></div>
+        </div>
+    </div>
+</section>
+
+<!-- Inscripciones -->
+<section id="inscripciones" class="py-5 text-center bg-light">
+    <div class="container">
+        <h2 class="mb-4">Inscripciones</h2>
+        <p class="mb-4 fs-5">
+            ¡No pierdas la oportunidad de ser parte del Abierto Pampeano 2025!  
+            Inscribite en las siguientes categorías según tu preferencia:
+        </p>
+        <div class="d-flex justify-content-center flex-wrap">
+            <a href="https://forms.gle/aabd" target="_blank" class="btn btn-cta m-2 px-4 py-3 fs-5">
+                Inscripción AABD
+            </a>
+            <a href="https://forms.gle/apbd" target="_blank" class="btn btn-secondary m-2 px-4 py-3 fs-5">
+                Inscripción APBD
+            </a>
+        </div>
+        <p class="mt-4 text-muted fst-italic">
+            Para consultas, comunicate con nuestro equipo a través de WhatsApp o email.
+        </p>
+    </div>
+</section>
+
+
+<!-- Descargas -->
+<section id="descargas" class="py-5 bg-light text-center">
+    <div class="container">
+        <h2>Descargas</h2>
+        <a href="assets/heats.pdf" class="btn btn-cta m-2" download>Competencia Heats</a>
+        <a href="assets/precios-aabd.pdf" class="btn btn-secondary m-2" download>Precios AABD</a>
+        <a href="assets/precios-apbd.pdf" class="btn btn-secondary m-2" download>Precios APBD</a>
+    </div>
+</section>
+
+<!-- Ubicación -->
+<section id="ubicacion" class="py-5 text-center">
+    <div class="container">
+        <h2>Ubicación</h2>
+        <div class="mb-4">
+            <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" allowfullscreen></iframe>
+        </div>
+        <p>Síguenos en redes:</p>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="blank" class="instagram-icon mx-2 fs-3">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="mailto:correo@ejemplo.com" class="email-icon mx-2 fs-3">
+                <i class="bi bi-envelope-fill"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- Botón WhatsApp flotante -->
+    <a
+      href="https://wa.me/549000000000?text=¡Hola!%20Quisiera%20consultar%20sobre%20los%20precios%20y%20datos%20de%20transferencia%20del%20Abierto%20Pampeano"
+      target="_blank"
+      class="whatsapp-float"
+      aria-label="WhatsApp"
+    >
+      <i class="bi bi-whatsapp"></i>
+    </a>
+
+
+<!-- Footer -->
+<footer class="text-center py-3 bg-dark text-white">
+    <p>&copy; Abierto Pampeano | Diseñado por Jorge Santillan <img src="assets/logo-jorge.png" height="20"> | Desarrollado por Kevin Luna <img src="assets/logo-kevin.png" height="20"></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
