@@ -16,25 +16,27 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: var(--color-whatsapp);
+    background-color: #25D366;
     color: white;
-    font-size: 3rem;
-    z-index: 1050;
-    border-radius: 50%;
+    font-size: 2.5rem; /* tamaño icono ajustado */
     width: 60px;
     height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .whatsapp-float:hover {
-    background-color: var(--color-whatsapp-hover);
+    background-color: #1ebe57;
     transform: scale(1.1);
+    color: white;
 }
+
 
 /* Botón flotante WhatsApp con ícono */
 .whatsapp-float {

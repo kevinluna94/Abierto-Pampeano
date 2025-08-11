@@ -57,37 +57,49 @@
     right: 20px;
     background-color: #25D366;
     color: white;
-    font-size: 2rem;
-    padding: 10px 14px;
+    font-size: 2.1rem; /* tamaño icono ajustado */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
     border-radius: 50%;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .whatsapp-float:hover {
     background-color: #1ebe57;
+    transform: scale(1.1);
     color: white;
 }
 
 
-.social-icons a {
-    transition: color 0.3s ease;
-}
 
 /* Colores oficiales */
 .instagram-icon {
     color: #E4405F; /* Instagram */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 .instagram-icon:hover {
     color: #b42c49;
+    transform: scale(1.2);
 }
 
 .email-icon {
     color: #D44638; /* Gmail */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 .email-icon:hover {
     color: #a3362c;
+    transform: scale(1.2);
+}
+
+/* Estilo general para enlaces sociales */
+.social-link {
+    text-decoration: none;
 }
 
 
