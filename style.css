@@ -41,6 +41,47 @@
     color: white;
 }
 
+/* CSS Contador  */
+.contador-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f9b455;
+    border-radius: 12px;
+    color: #000;
+    font-weight: bold;
+    max-width: 100%;
+}
+
+.contador-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: nowrap; /* Evita que los elementos se bajen */
+    overflow-x: auto;  /* Permite scroll horizontal si no entran */
+}
+
+.contador-box {
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 60px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    text-align: center;
+    flex-shrink: 0; /* Evita que se reduzcan demasiado */
+}
+
+.contador-box span {
+    font-size: 1.5rem;
+    display: block;
+}
+
+.contador-box small {
+    display: block;
+    font-size: 0.8rem;
+    color: #555;
+}
 /* Parallax */
 .parallax {
     background-image: url('Public/fondo_apbd_web[1].jpg');
