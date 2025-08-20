@@ -84,7 +84,7 @@
 }
 /* Parallax */
 .parallax {
-    background-image: url('Public/fondo_apbd_web[1].jpg');
+    background-image: url('Public/apbd2025_fondo_web_5.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -152,3 +152,6 @@
 footer {
     font-size: 0.9rem;
 }
+
+
+

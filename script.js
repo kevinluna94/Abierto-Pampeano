@@ -39,3 +39,6 @@ const actualizarContador = setInterval(() => {
     document.getElementById("minutos").innerText = minutos;
     document.getElementById("segundos").innerText = segundos;
 }, 1000);
+
+
+
