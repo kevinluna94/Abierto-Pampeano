@@ -84,7 +84,7 @@
 }
 /* Parallax */
 .parallax {
-    background-image: url('Public/apbd2025_fondo_web_5.jpg');
+    background-image: url('Public/Imagen de WhatsApp 2025-08-20 a las 21.22.38_c1a9c829.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -121,7 +121,7 @@
 
 /* Colores oficiales */
 .instagram-icon {
-    color: #E4405F; /* Instagram */
+    color: black; /* Instagram */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 .instagram-icon:hover {
@@ -130,7 +130,7 @@
 }
 
 .email-icon {
-    color: #D44638; /* Gmail */
+    color: black; /* Gmail */
     transition: color 0.3s ease, transform 0.3s ease;
 }
 .email-icon:hover {
