@@ -60,7 +60,7 @@
 
 /* Navbar */
 .navbar {
-    height: 60px;              /* asegurar altura conocida */
+    height: 80px;              /* asegurar altura conocida */
     background-color: #000 !important;
     z-index: 10;
     position: fixed;           /* queda fijo arriba */
