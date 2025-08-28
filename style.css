@@ -80,7 +80,10 @@
 }
 
 
-
+/* Ajuste de scroll para que no tape el navbar fijo */
+section[id] {
+  scroll-margin-top: 80px; /* igual a la altura del navbar */
+}
 
 /* CSS Contador  */
 .contador-container {
