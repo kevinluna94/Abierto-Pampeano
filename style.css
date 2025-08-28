@@ -8,7 +8,7 @@
 .hero-section {
     position: relative;
     margin-top: 60px;           /* altura del navbar */
-    height: calc(100vh - 60px); /* resto del hero menos navbar */
+    height: calc(100vh - 10px); /* resto del hero menos navbar */
     overflow: hidden;
 }
 
