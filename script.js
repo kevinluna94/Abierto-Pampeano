@@ -42,40 +42,22 @@ const actualizarContador = setInterval(() => {
 
 
 
-const contador = document.getElementById("contador-visitas");
-const contadorID = "abierto-pampeano/visitas";
+// Contador de visitas con CountAPI
+const contador = document.getElementById('contador-visitas');
 
-fetch(`https://api.countapi.xyz/hit/${contadorID}`)
+// Namespace y key únicos para tu sitio
+const namespace = 'abierto_pampeano';
+const key = 'visitas';
+
+fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
   .then(res => res.json())
   .then(data => {
-    let valorFinal = data.value;
-    let valorActual = 0;
-    const incremento = Math.ceil(valorFinal / 100);
-
-    const animar = setInterval(() => {
-      valorActual += incremento;
-      if (valorActual >= valorFinal) {
-        valorActual = valorFinal;
-        clearInterval(animar);
-      }
-      contador.textContent = valorActual;
-    }, 20);
+    contador.textContent = data.value;
   })
-  .catch(err => console.error("Error contador de visitas:", err));
-
-  const secciones = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    } 
-    // Si querés que desaparezca al salir del viewport, descomenta la siguiente línea
-    // else { entry.target.classList.remove("visible"); }
+  .catch(err => {
+    console.error('Error al obtener contador:', err);
   });
-}, { threshold: 0.2 }); // cuando 20% de la sección sea visible
 
-secciones.forEach(section => observer.observe(section));
 
 
 
