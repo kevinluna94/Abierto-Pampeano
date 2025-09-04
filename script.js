@@ -45,19 +45,17 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    // Endpoint de CounterAPI
-    const endpointIncrement = "https://counterapi.io/abiertopampeanovisitas/visitaspagina/increment";
-    const endpointGet = "https://counterapi.io/abiertopampeanovisitas/visitaspagina";
+    const endpoint = "https://api.countapi.xyz/hit/abiertopampeanovisitas/visitaspagina";
 
-    // Incrementa primero
-    fetch(endpointIncrement, { method: "POST" })
-        .then(() => fetch(endpointGet)) // obtiene valor actualizado
+    fetch(endpoint)
         .then(response => response.json())
         .then(data => {
+            // data.value contiene el total actualizado
             contadorVisitas.textContent = data.value;
         })
         .catch(err => console.error("Error al actualizar contador:", err));
 });
+
 
 // Efecto de transición al scrollear
 const secciones = document.querySelectorAll("section");
