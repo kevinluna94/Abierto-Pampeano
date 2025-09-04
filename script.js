@@ -42,3 +42,40 @@ const actualizarContador = setInterval(() => {
 
 
 
+const contador = document.getElementById("contador-visitas");
+const contadorID = "abierto-pampeano/visitas";
+
+fetch(`https://api.countapi.xyz/hit/${contadorID}`)
+  .then(res => res.json())
+  .then(data => {
+    let valorFinal = data.value;
+    let valorActual = 0;
+    const incremento = Math.ceil(valorFinal / 100);
+
+    const animar = setInterval(() => {
+      valorActual += incremento;
+      if (valorActual >= valorFinal) {
+        valorActual = valorFinal;
+        clearInterval(animar);
+      }
+      contador.textContent = valorActual;
+    }, 20);
+  })
+  .catch(err => console.error("Error contador de visitas:", err));
+
+  const secciones = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    } 
+    // Si querés que desaparezca al salir del viewport, descomenta la siguiente línea
+    // else { entry.target.classList.remove("visible"); }
+  });
+}, { threshold: 0.2 }); // cuando 20% de la sección sea visible
+
+secciones.forEach(section => observer.observe(section));
+
+
+
