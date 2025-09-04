@@ -41,7 +41,6 @@ const actualizarContador = setInterval(() => {
 }, 1000);
 
 
-
 // Contador de visitas con CountAPI
 const contador = document.getElementById('contador-visitas');
 
@@ -58,6 +57,21 @@ fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
     console.error('Error al obtener contador:', err);
   });
 
+
+  // Transición
+  const secciones = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    } 
+    // Si querés que desaparezca al salir del viewport, descomenta la siguiente línea
+    // else { entry.target.classList.remove("visible"); }
+  });
+}, { threshold: 0.2 }); // cuando 20% de la sección sea visible
+
+secciones.forEach(section => observer.observe(section));
 
 
 
