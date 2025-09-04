@@ -45,34 +45,31 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    // Endpoint de CounterAPI (reemplazar con tu workspace y counter)
-    const endpoint = "https://counterapi.io/abiertopampeanovisitas/visitaspagina/increment";
+    // Endpoint de CounterAPI
+    const endpointIncrement = "https://counterapi.io/abiertopampeanovisitas/visitaspagina/increment";
+    const endpointGet = "https://counterapi.io/abiertopampeanovisitas/visitaspagina";
 
-    fetch(endpoint)
+    // Incrementa primero
+    fetch(endpointIncrement, { method: "POST" })
+        .then(() => fetch(endpointGet)) // obtiene valor actualizado
         .then(response => response.json())
         .then(data => {
-            // data.value contiene el total actualizado
             contadorVisitas.textContent = data.value;
         })
         .catch(err => console.error("Error al actualizar contador:", err));
 });
 
-
-
-  // Transición
-  const secciones = document.querySelectorAll("section");
+// Efecto de transición al scrollear
+const secciones = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    } 
-    // Si querés que desaparezca al salir del viewport, descomenta la siguiente línea
-    // else { entry.target.classList.remove("visible"); }
-  });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        } 
+        // Si querés que desaparezca al salir del viewport, descomenta:
+        // else { entry.target.classList.remove("visible"); }
+    });
 }, { threshold: 0.2 }); // cuando 20% de la sección sea visible
 
 secciones.forEach(section => observer.observe(section));
-
-
-
