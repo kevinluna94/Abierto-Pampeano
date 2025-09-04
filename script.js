@@ -42,20 +42,21 @@ const actualizarContador = setInterval(() => {
 
 
 // Contador de visitas con CountAPI
-const contador = document.getElementById('contador-visitas');
+document.addEventListener("DOMContentLoaded", function() {
+    const contadorVisitas = document.getElementById("contador-visitas");
 
-// Namespace y key únicos para tu sitio
-const namespace = 'abierto_pampeano';
-const key = 'visitas';
+    // Endpoint de CounterAPI (reemplazar con tu workspace y counter)
+    const endpoint = "https://counterapi.io/abiertopampeanovisitas/visitaspagina/increment";
 
-fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-  .then(res => res.json())
-  .then(data => {
-    contador.textContent = data.value;
-  })
-  .catch(err => {
-    console.error('Error al obtener contador:', err);
-  });
+    fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            // data.value contiene el total actualizado
+            contadorVisitas.textContent = data.value;
+        })
+        .catch(err => console.error("Error al actualizar contador:", err));
+});
+
 
 
   // Transición

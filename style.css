@@ -148,6 +148,7 @@ section[id] {
 
 
 
+
 /* Efecto de desvanecimiento suave al hacer scroll */
 section:not(.parallax) {
     opacity: 0;
