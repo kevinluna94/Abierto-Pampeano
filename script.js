@@ -42,6 +42,7 @@ const actualizarContador = setInterval(() => {
 
 
 // Contador de visitas sheet + ubicación y referrer
+// Contador de visitas sheet + ubicación y referrer
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
@@ -61,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 body: JSON.stringify({
                     action: "visita",
-                    ciudad: ciudad,
+                    referrer: referrer,
                     provincia: provincia,
-                    referrer: referrer
+                    ciudad: ciudad
                 })
             })
             .then(response => response.json())
