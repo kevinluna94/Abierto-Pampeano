@@ -45,20 +45,19 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    fetch("https://script.google.com/macros/s/AKfycbzNmHcMgrRGUeSGlCxOkqs2Sh4e9xfhfgWedizKPKZ1Zs-xG5aRS8LYyBRjPZwCp7-o/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}) // solo incrementa total
-    })
-    .then(response => response.json())
-    .then(data => {
-        contadorVisitas.textContent = data.value;
-    })
-    .catch(err => {
-        console.error("Error al actualizar contador:", err);
-        contadorVisitas.textContent = "–";
-    });
-    });
+    const endpoint = "https://script.google.com/macros/s/AKfycbyS9N9CcZP8kQXJu-tH4U1QS_tfjXuslBa79YIg0Sc/dev";
+
+    fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            contadorVisitas.textContent = data.value;
+        })
+        .catch(err => {
+            console.error("Error al actualizar contador:", err);
+            contadorVisitas.textContent = "–";
+        });
+});
+
 
 
 // Efecto de transición al scrollear
