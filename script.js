@@ -45,15 +45,18 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
+    // Endpoint de CountAPI público
     const endpoint = "https://api.countapi.xyz/hit/abiertopampeanovisitas/visitaspagina";
 
     fetch(endpoint)
         .then(response => response.json())
         .then(data => {
-            // data.value contiene el total actualizado
             contadorVisitas.textContent = data.value;
         })
-        .catch(err => console.error("Error al actualizar contador:", err));
+        .catch(err => {
+            console.error("Error al actualizar contador:", err);
+            contadorVisitas.textContent = "–";
+        });
 });
 
 
