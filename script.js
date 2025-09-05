@@ -40,7 +40,6 @@ const actualizarContador = setInterval(() => {
     document.getElementById("segundos").innerText = segundos;
 }, 1000);
 
-
 // Contador de visitas sheet + ubicación y referrer
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
@@ -57,8 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
             contadorVisitas.textContent = "–";
         });
 });
-
-
 
 // Efecto de transición al scrollear
 const secciones = document.querySelectorAll("section");
