@@ -44,7 +44,7 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    const endpoint = "https://script.google.com/macros/s/AKfycbyS9N9CcZP8kQXJu-tH4U1QS_tfjXuslBa79YIg0Sc/dev";
+    const endpoint = "https://script.google.com/macros/s/AKfycbzNmHcMgrRGUeSGlCxOkqs2Sh4e9xfhfgWedizKPKZ1Zs-xG5aRS8LYyBRjPZwCp7-o/exec"; // tu URL real
 
     fetch(endpoint)
         .then(response => response.json())
