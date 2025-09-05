@@ -41,11 +41,11 @@ const actualizarContador = setInterval(() => {
 }, 1000);
 
 
-// Contador de visitas con CountAPI
+// Contador de visitas sheet + ubicación y referrer
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    // Primero obtenemos ubicación aproximada usando GeoIP
+    // Obtenemos ubicación aproximada usando GeoIP
     fetch("https://ipapi.co/json/")
         .then(res => res.json())
         .then(locationData => {
@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
             contadorVisitas.textContent = "–";
         });
 });
+
 
 // Efecto de transición al scrollear
 const secciones = document.querySelectorAll("section");
