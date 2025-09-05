@@ -42,46 +42,23 @@ const actualizarContador = setInterval(() => {
 
 
 // Contador de visitas sheet + ubicación y referrer
-// Contador de visitas sheet + ubicación y referrer
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    // Obtenemos ubicación aproximada usando GeoIP
-    fetch("https://ipapi.co/json/")
-        .then(res => res.json())
-        .then(locationData => {
-            const ciudad = locationData.city || "Desconocida";
-            const provincia = locationData.region || "Desconocida";
-            const referrer = document.referrer || "Directo";
-
-            // Enviar datos al Web App de Google Apps Script
-            fetch("https://script.google.com/macros/s/AKfycbzNmHcMgrRGUeSGlCxOkqs2Sh4e9xfhfgWedizKPKZ1Zs-xG5aRS8LYyBRjPZwCp7-o/exec", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    action: "visita",
-                    referrer: referrer,
-                    provincia: provincia,
-                    ciudad: ciudad
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Actualizamos el contador en la web
-                contadorVisitas.textContent = data.value;
-            })
-            .catch(err => {
-                console.error("Error al actualizar contador:", err);
-                contadorVisitas.textContent = "–";
-            });
-        })
-        .catch(err => {
-            console.error("Error obteniendo ubicación:", err);
-            contadorVisitas.textContent = "–";
-        });
-});
+    fetch("https://script.google.com/macros/s/TU_WEBAPP_ID/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({}) // solo incrementa total
+    })
+    .then(response => response.json())
+    .then(data => {
+        contadorVisitas.textContent = data.value;
+    })
+    .catch(err => {
+        console.error("Error al actualizar contador:", err);
+        contadorVisitas.textContent = "–";
+    });
+    });
 
 
 // Efecto de transición al scrollear
