@@ -45,8 +45,7 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    // Endpoint de CountAPI público
-    const endpoint = "https://api.countapi.xyz/hit/abiertopampeanovisitas/visitaspagina";
+    const endpoint = "https://script.google.com/macros/s/AKfycbzNmHcMgrRGUeSGlCxOkqs2Sh4e9xfhfgWedizKPKZ1Zs-xG5aRS8LYyBRjPZwCp7-o/exec";
 
     fetch(endpoint)
         .then(response => response.json())
@@ -58,6 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
             contadorVisitas.textContent = "–";
         });
 });
+
 
 
 // Efecto de transición al scrollear
