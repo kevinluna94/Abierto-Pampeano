@@ -45,7 +45,7 @@ const actualizarContador = setInterval(() => {
 document.addEventListener("DOMContentLoaded", function() {
     const contadorVisitas = document.getElementById("contador-visitas");
 
-    fetch("https://script.google.com/macros/s/TU_WEBAPP_ID/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbzNmHcMgrRGUeSGlCxOkqs2Sh4e9xfhfgWedizKPKZ1Zs-xG5aRS8LYyBRjPZwCp7-o/exec", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({}) // solo incrementa total
