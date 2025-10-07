@@ -131,7 +131,6 @@
         <li class="nav-item"><a class="nav-link" href="index.html#inscripciones">Inscripciones</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#descargas">Descargas</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#entradas">Entradas</a></li>
-        <!--<li class="nav-item"><a class="nav-link" href="index.html#galeria">Galería</a></li>-->
         <li class="nav-item"><a class="nav-link" href="index.html#ubicacion">Ubicación</a></li>
       </ul>
     </div>
@@ -158,109 +157,106 @@
   <p>© 2025 Abierto Pampeano</p>
   <p>
     Diseñado por 
-    <a href="https://www.instagram.com/jorge_santillan_dg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-white text-decoration-underline">
-      Jorge Santillan <img src="Public/Imagen de WhatsApp 2025-08-28 a las 20.58.32_9280af92.jpg" height="20" alt="Logo Jorge">
+    <a href="https://www.instagram.com/jorge_santillan_dg" target="_blank" class="text-white text-decoration-underline">
+      Jorge Santillan
     </a>
   </p>
   <p>
     Desarrollado por 
     <a href="https://kevinluna94.github.io/sitio-web-portfolio-kevinluna/" target="_blank" class="text-white text-decoration-underline">
-      Kevin Luna <img src="Public/Logo-Kevin-Luna.svg" height="30" alt="Logo Kevin">
+      Kevin Luna
     </a>
   </p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    const input = document.getElementById("busquedaInput");
-    const resultadoDiv = document.getElementById("resultadoDiv");
+const input = document.getElementById("busquedaInput");
+const resultadoDiv = document.getElementById("resultadoDiv");
 
-    document.getElementById("buscarBtn").addEventListener("click", function() {
-        const valor = input.value.trim();
-        resultadoDiv.innerHTML = "";
+document.getElementById("buscarBtn").addEventListener("click", function() {
+    const valor = input.value.trim();
+    resultadoDiv.innerHTML = "";
 
-        if (!valor) {
-            alert("Por favor, ingresá tu DNI o Dorsal.");
-            return;
-        }
+    if (!valor) {
+        alert("Por favor, ingresá tu DNI o Dorsal.");
+        return;
+    }
 
-        fetch("Public/heats.xlsx")
-            .then(response => response.arrayBuffer())
-            .then(data => {
-                const workbook = XLSX.read(data, { type: "array" });
-                let resultados = [];
+    // Normalizar valor: quitar puntos y espacios
+    const valorNum = Number(valor.replace(/\D/g, ''));
 
-                workbook.SheetNames.forEach(sheetName => {
-                    const sheet = workbook.Sheets[sheetName];
-                    const rawData = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+    fetch("Public/heats.xlsx")
+        .then(response => response.arrayBuffer())
+        .then(data => {
+            const workbook = XLSX.read(data, { type: "array" });
+            let resultados = [];
 
-                    let currentHeat = "";
-                    rawData.forEach(row => {
-                        if (row[0] && row[0].toString().toUpperCase().startsWith("HEAT")) {
-                            currentHeat = row[0];
-                            return;
-                        }
-                        if (!row[0] || row[0].toString().toLowerCase() === "dorsal") return;
+            workbook.SheetNames.forEach(sheetName => {
+                const sheet = workbook.Sheets[sheetName];
+                const rawData = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
 
-                        const fila = {
+                let currentHeat = "";
+                rawData.forEach(row => {
+                    if (row[0] && row[0].toString().toUpperCase().startsWith("HEAT")) {
+                        currentHeat = row[0];
+                        return;
+                    }
+                    if (!row[0] || row[0].toString().toLowerCase() === "dorsal") return;
+
+                    // Convertir Dorsal a número
+                    const dorsalNum = Number(row[0]);
+
+                    // Normalizar DNI líder
+                    const leaderDNI = row[3]?.toString().replace(/\D/g, '');
+
+                    if (dorsalNum === valorNum || leaderDNI === valorNum.toString()) {
+                        resultados.push({
                             heat: currentHeat,
-                            DORSAL: row[0]?.toString().trim(),
-                            leaderName: row[1]?.toString().trim(),
-                            followerName: row[3]?.toString().trim(),
-                            escuela: row[5]?.toString().trim(),
-                            baile: row[9]?.toString().trim()
-                        };
-
-                        if (
-                            fila.DORSAL === valor ||
-                            row[2]?.toString().trim() === valor || // Leader DNI
-                            row[4]?.toString().trim() === valor  // Follower DNI
-                        ) {
-                            resultados.push(fila);
-                        }
-                    });
+                            DORSAL: row[0],
+                            atletas: row[1],
+                            escuela: row[2]
+                        });
+                    }
                 });
-
-                if (resultados.length === 0) {
-                    resultadoDiv.innerHTML = "<p class='no-result'>No se encontraron resultados.</p>";
-                    return;
-                }
-
-                resultados.forEach(item => {
-                    const heatDiv = document.createElement("div");
-                    heatDiv.innerHTML = `
-                        <div class="heat-title">${item.heat}</div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Dorsal</th>
-                                    <th>Leader</th>
-                                    <th>Follower</th>
-                                    <th>Escuela</th>
-                                   
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>${item.DORSAL}</td>
-                                    <td>${item.leaderName}</td>
-                                    <td>${item.followerName}</td>
-                                    <td>${item.escuela}</td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    `;
-                    resultadoDiv.appendChild(heatDiv);
-                });
-
-                input.value = "";
-            })
-            .catch(error => {
-                console.error("Error al cargar el Excel:", error);
-                resultadoDiv.innerHTML = "<p class='no-result'>Error al cargar el archivo de Heat.</p>";
             });
-    });
+
+            if (resultados.length === 0) {
+                resultadoDiv.innerHTML = "<p class='no-result'>No se encontraron resultados.</p>";
+                return;
+            }
+
+            resultados.forEach(item => {
+                const heatDiv = document.createElement("div");
+                heatDiv.innerHTML = `
+                    <div class="heat-title">${item.heat}</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dorsal</th>
+                                <th>Atletas</th>
+                                <th>Escuela</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${item.DORSAL}</td>
+                                <td>${item.atletas}</td>
+                                <td>${item.escuela}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+                resultadoDiv.appendChild(heatDiv);
+            });
+
+            input.value = "";
+        })
+        .catch(error => {
+            console.error("Error al cargar el Excel:", error);
+            resultadoDiv.innerHTML = "<p class='no-result'>Error al cargar el archivo de Heat.</p>";
+        });
+});
 </script>
 </body>
 </html>
