@@ -17,7 +17,7 @@ console.log("Abierto Pampeano cargado correctamente.");
 
 
 // JS Contador 
-const fechaEvento = new Date("October 11, 2025 07:30:00").getTime();
+const fechaEvento = new Date("October 11, 2026 07:30:00").getTime();
 
 const actualizarContador = setInterval(() => {
     const ahora = new Date().getTime();
