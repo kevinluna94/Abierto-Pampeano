@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.abiertopampeano.wuaze.com/sitemap.xml
+Sitemap: http://www.abierto-pampeano.wuaze.com/sitemap.xml
