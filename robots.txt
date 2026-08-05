@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://www.abierto-pampeano.wuaze.com/sitemap.xml
+Host: abiertopampeano.com
+Sitemap: https://abiertopampeano.com/sitemap.xml
