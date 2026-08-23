@@ -6,6 +6,8 @@ console.log("Abierto Pampeano cargado correctamente.");
     const navbar = document.querySelector('.navbar');
     const navbarCollapse = document.getElementById('navbarNav');
     const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+    const parallax = document.querySelector('.parallax');
+    let parallaxVisible = false;
 
     const actualizarNavbar = function () {
       navbar.classList.toggle('navbar-scrolled', window.scrollY > 40);
@@ -13,6 +15,36 @@ console.log("Abierto Pampeano cargado correctamente.");
 
     actualizarNavbar();
     window.addEventListener('scroll', actualizarNavbar, { passive: true });
+
+    const actualizarParallax = function () {
+      const rect = parallax.getBoundingClientRect();
+      const distanciaAlCentro = window.innerHeight / 2 - (rect.top + rect.height / 2);
+      const desplazamiento = Math.max(-120, Math.min(120, distanciaAlCentro * 0.28));
+
+      parallax.style.setProperty('--parallax-offset', `${desplazamiento}px`);
+    };
+
+    if (parallax) {
+      actualizarParallax();
+      window.addEventListener('scroll', actualizarParallax, { passive: true });
+      window.addEventListener('touchmove', actualizarParallax, { passive: true });
+      window.addEventListener('resize', actualizarParallax);
+
+      const observadorParallax = new IntersectionObserver(function (entries) {
+        parallaxVisible = entries[0].isIntersecting;
+
+        if (parallaxVisible) {
+          actualizarParallax();
+        }
+      });
+
+      observadorParallax.observe(parallax);
+      setInterval(function () {
+        if (parallaxVisible) {
+          actualizarParallax();
+        }
+      }, 32);
+    }
 
     document.querySelectorAll('#navbarNav .nav-link').forEach(function (navLink) {
       navLink.addEventListener('click', function () {
