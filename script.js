@@ -3,8 +3,16 @@ console.log("Abierto Pampeano cargado correctamente.");
 
 
   document.addEventListener('DOMContentLoaded', function () {
+    const navbar = document.querySelector('.navbar');
     const navbarCollapse = document.getElementById('navbarNav');
     const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+
+    const actualizarNavbar = function () {
+      navbar.classList.toggle('navbar-scrolled', window.scrollY > 40);
+    };
+
+    actualizarNavbar();
+    window.addEventListener('scroll', actualizarNavbar, { passive: true });
 
     document.querySelectorAll('#navbarNav .nav-link').forEach(function (navLink) {
       navLink.addEventListener('click', function () {
@@ -57,17 +65,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 });
 
-// Efecto de transición al scrollear
-const secciones = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        } 
-        // Si querés que desaparezca al salir del viewport, descomenta:
-        // else { entry.target.classList.remove("visible"); }
-    });
-}, { threshold: 0.2 }); // cuando 20% de la sección sea visible
-
-secciones.forEach(section => observer.observe(section));

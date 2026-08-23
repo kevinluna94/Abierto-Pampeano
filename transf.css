@@ -1,14 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,500;1,600&display=swap');
+
 :root {
-    --color-principal: #f9b455; /* naranja */
-    --color-secundario: #c18f54; /* marrón */
-    --color-terciario: #000000; /* negro */
+    --color-principal: #f9b455;
+    --color-secundario: #c18f54;
+    --color-terciario: #000000;
+    --color-fondo: #f6f1e8;
+    --color-superficie: #fffaf2;
     --color-whatsapp: #25D366;
     --color-whatsapp-hover: #1ebe57;
 }
 
+body {
+    background-color: var(--color-fondo) !important;
+    color: #211d18;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.1rem;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 0.95;
+}
+
 /* Navbar */
 .navbar {
-    background-color: var(--color-terciario) !important; /* Negro sólido */
+    background-color: var(--color-terciario) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: var(--color-principal);
 }
 
 /* Botón flotante WhatsApp */
@@ -18,7 +40,7 @@
     right: 20px;
     background-color: #25D366;
     color: white;
-    font-size: 2.5rem; /* tamaño icono ajustado */
+    font-size: 2.1rem;
     width: 60px;
     height: 60px;
     display: flex;
@@ -37,26 +59,6 @@
     color: white;
 }
 
-
-/* Botón flotante WhatsApp con ícono */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    font-size: 2rem;
-    padding: 10px 14px;
-    border-radius: 50%;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-.whatsapp-float:hover {
-    background-color: #1ebe57;
-    color: white;
-
 /* Colores marca */
 .price-header {
     color: var(--color-principal);
@@ -64,5 +66,19 @@
 
 .price-card {
     border-color: var(--color-secundario);
+    background-color: var(--color-superficie);
+}
+
+.card {
+    border-color: rgba(193, 143, 84, 0.45);
+}
+
+.list-group-item {
+    background-color: transparent;
+    border-color: rgba(193, 143, 84, 0.3);
+}
+
+.bi {
+    color: var(--color-secundario);
 }
 }

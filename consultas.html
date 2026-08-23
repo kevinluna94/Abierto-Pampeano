@@ -47,21 +47,30 @@
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,500;1,600&display=swap');
+
         :root {
             --color-principal: #f9b455;
-            --color-secundario: #000000;
+            --color-secundario: #c18f54;
             --color-negro: #000000;
+            --color-fondo: #f6f1e8;
+            --color-superficie: #fffaf2;
         }
 
         body {
-            background-color: white;
-            font-family: Arial, sans-serif;
+            background-color: var(--color-fondo);
+            color: #211d18;
+            font-family: "Barlow Condensed", sans-serif;
+            font-size: 1.1rem;
         }
 
         h1, h2 {
             text-align: center;
             color: var(--color-negro);
             margin-top: 20px;
+            font-weight: 800;
+            letter-spacing: 0;
+            line-height: 0.95;
         }
 
         input {
@@ -81,7 +90,7 @@
 
         .btn-cta:hover {
             background-color: var(--color-secundario);
-            color: white;
+            color: var(--color-negro);
         }
 
         #resultadoDiv {
@@ -92,7 +101,8 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 30px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            background-color: var(--color-superficie);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.12);
         }
 
         th {
@@ -105,11 +115,11 @@
         td {
             padding: 8px;
             text-align: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid rgba(193, 143, 84, 0.3);
         }
 
         tr:nth-child(even) td {
-            background-color: #fef6e7;
+            background-color: #f9edda;
         }
 
         .heat-title {
@@ -124,7 +134,7 @@
 
         .no-result {
             text-align: center;
-            color: red;
+            color: #9d2f24;
             font-weight: bold;
             margin-top: 20px;
         }
