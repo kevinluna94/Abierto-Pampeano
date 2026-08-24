@@ -105,6 +105,16 @@
             <p class="mt-4 text-center text-muted">
                 Por favor, envíanos el comprobante una vez realizada la transferencia.
             </p>
+                        <div class="text-center">
+                                <button
+                                    type="button"
+                                    class="btn btn-pay"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#transferModal"
+                                >
+                                    <i class="bi bi-credit-card"></i> Pagar por transferencia
+                                </button>
+                        </div>
         </div>
 
         <!-- Sección Precios Entradas -->
@@ -115,7 +125,7 @@
                     <div class="card price-card shadow-sm h-100 border-3">
                         <div class="card-body text-center">
                             <h5 class="card-title">Entrada General</h5>
-                            <p class="display-5 fw-bold text-dark">$15000</p>
+                            <p class="display-5 fw-bold text-dark">$20000</p>
                             <p class="card-text">Acceso a todos los eventos del día.</p>
                         </div>
                     </div>
@@ -153,7 +163,148 @@
       <i class="bi bi-whatsapp"></i>
     </a>
 
+        <!-- Modal de transferencia -->
+        <div class="modal fade" id="transferModal" tabindex="-1" aria-labelledby="transferModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content transfer-modal">
+                    <div class="modal-header">
+                        <h2 class="modal-title fs-3" id="transferModalLabel">
+                            <i class="bi bi-bank2"></i> Realizá tu transferencia
+                        </h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="buyerForm" class="buyer-form">
+                            <p class="transfer-modal-intro">Completá tus datos para registrar la entrada antes de realizar el pago.</p>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="buyerName">Nombre</label>
+                                    <input class="form-control" id="buyerName" name="nombre" type="text" autocomplete="given-name" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="buyerLastName">Apellido</label>
+                                    <input class="form-control" id="buyerLastName" name="apellido" type="text" autocomplete="family-name" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="buyerDni">DNI</label>
+                                    <input class="form-control" id="buyerDni" name="dni" type="text" inputmode="numeric" pattern="[0-9]{7,9}" autocomplete="off" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="form-label" for="buyerEmail">Mail</label>
+                                    <input class="form-control" id="buyerEmail" name="mail" type="email" autocomplete="email" required />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="buyerWhatsapp">WhatsApp</label>
+                                    <input class="form-control" id="buyerWhatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ej.: 2954 123456" required />
+                                </div>
+                            </div>
+                            <input name="tipoEntrada" type="hidden" value="Entrada General" />
+                            <input name="valor" type="hidden" value="20000" />
+                            <button class="btn btn-register w-100 mt-4" type="submit">
+                                <i class="bi bi-person-check"></i> Registrar y continuar al pago
+                            </button>
+                            <div class="form-feedback" role="status" aria-live="polite"></div>
+                        </form>
+
+                        <div id="paymentStep" class="payment-step" hidden>
+                            <p class="transfer-modal-intro">Registro completo. Copiá el Alias o CBU para pagar desde tu banco o billetera.</p>
+                            <div class="transfer-copy-row">
+                                <div>
+                                    <span class="transfer-label">Alias</span>
+                                    <strong>abiertopampeano</strong>
+                                </div>
+                                <button type="button" class="btn btn-copy" data-copy="abiertopampeano" aria-label="Copiar alias">
+                                    <i class="bi bi-copy"></i> Copiar
+                                </button>
+                            </div>
+
+                            <div class="transfer-copy-row">
+                                <div>
+                                    <span class="transfer-label">CBU</span>
+                                    <strong>0000003100022084345781</strong>
+                                </div>
+                                <button type="button" class="btn btn-copy" data-copy="0000003100022084345781" aria-label="Copiar CBU">
+                                    <i class="bi bi-copy"></i> Copiar
+                                </button>
+                            </div>
+
+                            <div class="copy-feedback" role="status" aria-live="polite"></div>
+                            <a
+                                class="btn btn-whatsapp w-100 mt-3"
+                                href="https://wa.me/5492954447946?text=%C2%A1Hola%21%20Ya%20pagu%C3%A9%20la%20entrada%20para%20el%20Abierto%20Pampeano.%20Te%20env%C3%ADo%20el%20comprobante."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <i class="bi bi-whatsapp"></i> Ya transferí, enviar comprobante
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzvKdR-rqYMVId9wRUiBT6ZQOn6Jcmp2QCykwq_OZRt9bY1iteZ9H_5giUkt_8sPdbb/exec";
+                const buyerForm = document.getElementById("buyerForm");
+                const paymentStep = document.getElementById("paymentStep");
+                const formFeedback = document.querySelector(".form-feedback");
+                const feedback = document.querySelector(".copy-feedback");
+
+                buyerForm.addEventListener("submit", async function (event) {
+                    event.preventDefault();
+
+                    if (!buyerForm.reportValidity()) return;
+                    if (!APPS_SCRIPT_URL.startsWith("https://script.google.com/")) {
+                        formFeedback.textContent = "Falta configurar la URL de Apps Script.";
+                        formFeedback.className = "form-feedback is-error";
+                        return;
+                    }
+
+                    const submitButton = buyerForm.querySelector("button[type='submit']");
+                    submitButton.disabled = true;
+                    formFeedback.textContent = "Registrando entrada...";
+                    formFeedback.className = "form-feedback";
+
+                    try {
+                        const payload = Object.fromEntries(new FormData(buyerForm).entries());
+                        await fetch(APPS_SCRIPT_URL, {
+                            method: "POST",
+                            mode: "no-cors",
+                            headers: { "Content-Type": "text/plain;charset=utf-8" },
+                            body: JSON.stringify(payload)
+                        });
+
+                        buyerForm.hidden = true;
+                        paymentStep.hidden = false;
+                    } catch (error) {
+                        formFeedback.textContent = "No pudimos registrar tus datos. Revisá tu conexión e intentá nuevamente.";
+                        formFeedback.className = "form-feedback is-error";
+                        submitButton.disabled = false;
+                    }
+                });
+
+                document.querySelectorAll("[data-copy]").forEach(function (button) {
+                    button.addEventListener("click", async function () {
+                        const value = button.dataset.copy;
+
+                        try {
+                            await navigator.clipboard.writeText(value);
+                        } catch (error) {
+                            const textArea = document.createElement("textarea");
+                            textArea.value = value;
+                            document.body.appendChild(textArea);
+                            textArea.select();
+                            document.execCommand("copy");
+                            textArea.remove();
+                        }
+
+                        feedback.textContent = button.getAttribute("aria-label").replace("Copiar", "") + " copiado correctamente";
+                    });
+                });
+            });
+        </script>
 </body>
 </html>

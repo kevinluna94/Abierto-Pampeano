@@ -81,4 +81,156 @@ h1, h2, h3, h4, h5 {
 .bi {
     color: var(--color-secundario);
 }
+
+.transfer-modal {
+    border: 2px solid rgba(193, 143, 84, 0.55);
+    background-color: var(--color-superficie);
+}
+
+.transfer-modal .modal-header,
+.transfer-modal .modal-footer {
+    border-color: rgba(193, 143, 84, 0.3);
+}
+
+.transfer-modal-intro {
+    color: #5f5549;
+}
+
+.buyer-form .form-label {
+    margin-bottom: 0.25rem;
+    color: #4f453a;
+    font-weight: 700;
+}
+
+.buyer-form .form-control {
+    border-color: rgba(193, 143, 84, 0.55);
+    background-color: #ffffff;
+}
+
+.buyer-form .form-control:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 0.2rem rgba(193, 143, 84, 0.18);
+}
+
+.btn-register {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-terciario);
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.btn-register:hover,
+.btn-register:focus-visible {
+    background-color: #34302b;
+    color: #ffffff;
+}
+
+.btn-register .bi {
+    color: var(--color-principal);
+}
+
+.form-feedback {
+    min-height: 1.5rem;
+    padding-top: 0.65rem;
+    color: #5f5549;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-feedback.is-error {
+    color: #a12525;
+}
+
+.payment-step[hidden],
+.buyer-form[hidden] {
+    display: none;
+}
+
+.transfer-copy-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(193, 143, 84, 0.3);
+}
+
+.transfer-copy-row strong,
+.transfer-label {
+    display: block;
+}
+
+.transfer-copy-row strong {
+    overflow-wrap: anywhere;
+}
+
+.transfer-label {
+    color: #756858;
+    font-size: 0.95rem;
+}
+
+.btn-copy {
+    flex: 0 0 auto;
+    border-color: var(--color-secundario);
+    color: #5c3e1d;
+    font-weight: 700;
+}
+
+.btn-copy:hover,
+.btn-copy:focus-visible {
+    background-color: var(--color-secundario);
+    color: #ffffff;
+}
+
+.btn-copy:hover .bi,
+.btn-copy:focus-visible .bi,
+.btn-pay .bi,
+.btn-whatsapp .bi {
+    color: currentColor;
+}
+
+.btn-pay {
+    min-width: min(100%, 280px);
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--color-secundario);
+    background-color: var(--color-secundario);
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.btn-pay:hover,
+.btn-pay:focus-visible {
+    border-color: #9f6f38;
+    background-color: #9f6f38;
+    color: #ffffff;
+}
+
+.copy-feedback {
+    min-height: 1.5rem;
+    padding-top: 0.75rem;
+    color: #28733f;
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn-whatsapp {
+    background-color: var(--color-whatsapp);
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus-visible {
+    background-color: var(--color-whatsapp-hover);
+    color: #ffffff;
+}
+
+@media (max-width: 480px) {
+    .transfer-copy-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
 }
